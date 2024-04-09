@@ -1,5 +1,7 @@
 # Cryptocurrency Converter
+
 Convert from one cryptocurrency to another.
+
 Based off the beginner project currency_converter_api.py supplied by NTAI
 
 **Prerequisites**
