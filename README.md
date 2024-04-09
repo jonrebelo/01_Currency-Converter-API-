@@ -2,7 +2,8 @@
 Convert one currency to another currency
 
 **Prerequisites**
--freecryptoapi
+
+- freecryptoapi
 
 - Currencyconverter api
 
