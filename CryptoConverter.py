@@ -2,16 +2,22 @@
 
 import requests
 import os
-
+from pycoingecko import CoinGeckoAPI
 
 api_key = os.environ['CRYPTO_API']
 headers = {'Authorization': f'Bearer {api_key}'}
 user_input = str(input(
     "\n1. List of top 10 Cryptocurrencies and current USD Price\n2. Convert Currencies\n3. Exit\n\nYour input: "))
 
+cg = CoinGeckoAPI()
+
+top_cryptos = cg.get_coins_markets(vs_currency='usd', order='market_cap_desc', per_page=10, page=1)
+symbols = [crypto['symbol'].upper() for crypto in top_cryptos]
+
 while user_input == "1" or "2":
     if user_input == '1':
-        symbols = ['BTC', 'USDT', 'ETH', 'SOL', 'BNB', 'XRP', 'DOGE', 'ADA',  'SHIB', 'TON']
+        # Now symbols contains the top 10 cryptocurrencies
+        print(symbols)
 
         # Create the symbol parameter for the GET request
         symbol_param = '+'.join(symbols)
